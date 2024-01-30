@@ -10,7 +10,7 @@ const UserSchema = new mongoose.Schema({
     username: { type: String, required: true, minLength: 6, maxLength: 50, unique: true, trim: true, lowercase: true }
 })
 
-const schema = z.object({
+const signup = z.object({
     username: z.string(),
     email: z.string().email(),
     firstName: z.string(),
@@ -18,13 +18,30 @@ const schema = z.object({
     password: z.string()
 })
 
-function signUpSchema(body) {
-    const result = schema.safeParse(body);
+const signin = z.object({
+    username: z.string(),
+    password: z.string()
+})
 
-    return result;
+const update = z.object({
+    password: z.string().min(6).optional(),
+    firstName: z.string().max(50).optional(),
+    lastName: z.string().max(50).optional()
+
+})
+
+function signUpSchema(data) {
+    return signup.safeParse(data);
 }
 
+function signInSchema(data) {
+    return signin.safeParse(data);
+}
+
+function updateSchema(data) {
+    return update.safeParse(data);
+}
 
 const User = mongoose.model("User", UserSchema);
 
-module.exports = { User, signUpSchema };
+module.exports = { User, signUpSchema, signInSchema, updateSchema };
