@@ -1,0 +1,4 @@
+{
+    "jwtPrivateKey":"mySecretKey",
+    "database":"database"
+}

@@ -1,0 +1,4 @@
+{
+    "jwtPrivateKey":"blabla",
+    "database":"mongodb+srv://nothuman2718:iVRt4iVPYntJTlXX@cluster0.mbxopog.mongodb.net/Paytm"
+}
