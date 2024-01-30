@@ -6,13 +6,11 @@ const UserSchema = new mongoose.Schema({
     firstName: { type: String, required: true, maxLength: 50, trim: true },
     lastName: { type: String, required: true, maxLength: 50, trim: true },
     password: { type: String, required: true, minLength: 6, maxLength: 40, trim: true },
-    email: { type: String, required: true, maxLength: 50, trim: true },
     username: { type: String, required: true, minLength: 6, maxLength: 50, unique: true, trim: true, lowercase: true }
 })
 
 const signup = z.object({
     username: z.string(),
-    email: z.string().email(),
     firstName: z.string(),
     lastName: z.string(),
     password: z.string()

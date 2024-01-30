@@ -10,7 +10,7 @@ const invalidRoute = require("../middlewares/invalidRoute");
 const globalCatch = require("../middlewares/globalCatch");
 
 module.exports = function (app) {
-    // app.use(cors);
+    app.use(cors);
     app.use(express.json());
     app.use("/api/v1/user", userRouter);
     app.use("/api/v1/account", balanceRouter);
